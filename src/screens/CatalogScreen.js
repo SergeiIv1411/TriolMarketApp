@@ -5,9 +5,12 @@ import { Text, View } from 'react-native-markup-kit';
 import { useCategories } from '../logic/categories/useCategories';
 import { useNavigation, useRoute } from '@react-navigation/core';
 import * as routes from '../navigation/routes';
+import { CatalogListItem } from './CatalogListItem';
+import { useCategoryColors } from '../logic/categories/useCategoryColors';
 
 
 const CatalogScreen = ({ navigation }) => {
+    const { getCategoryColorByIndex } = useCategoryColors(); 
     const route = useRoute();
     const navigationCategory = useNavigation();
 
@@ -35,13 +38,7 @@ const CatalogScreen = ({ navigation }) => {
   };
 
   const renderItem = ({ item, index }) => {
-    return (
-      <TouchableOpacity onPress={() => onCategoryItemPress(item)}>
-        <View center height={80} bg-grey50 marginH-15 marginB-15 br40>
-          <Text>{item.name}</Text>
-        </View>
-      </TouchableOpacity>
-    );
+      return <CatalogListItem item={item} onPress={onCategoryItemPress} color={getCategoryColorByIndex(index)} />;
   };
 
   return (
