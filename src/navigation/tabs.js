@@ -9,6 +9,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import HomeScreen from '../screens/HomeScreen';
 import BarCodeScreen from '../screens/BarCodeScreen';
 import CatalogScreen from '../screens/CatalogScreen';
+import { CatalogNavigator } from './CatalogNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -66,7 +67,7 @@ const Tabs = () => {
                     </View>
                 ),
             }}/>
-            <Tab.Screen name="Каталог" component={CatalogScreen} options={{
+            <Tab.Screen name="Каталог" component={CatalogNavigator} options={{
                 tabBarIcon: ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 5}}>
                         <IconFontAwesome 
