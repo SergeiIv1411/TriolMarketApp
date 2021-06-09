@@ -15,7 +15,6 @@ export const useCategories = props => {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       const list = data;
 
       setCategories(list.categoryByParent);

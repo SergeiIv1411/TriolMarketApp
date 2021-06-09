@@ -10,6 +10,8 @@ export const GET_CATEGORIES = gql`
       _id
       name
       parentId
+      childrenCount
+    	productCount
     }
   }
 `;
