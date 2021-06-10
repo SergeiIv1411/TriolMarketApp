@@ -23,7 +23,7 @@ export const ProductListScreen = () => {
   const onProductItemPress = (item) => {
     navigation.push(routes.NAVIGATION_PRODUCT_DETAILS_ROUTE, {
       title: item.name,
-      totalCount: item.productCount,
+      id: item._id,
     });
   };
 

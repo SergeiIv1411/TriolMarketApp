@@ -22,9 +22,6 @@ export const useCategoryProducts = (props) => {
         currentPage: currentPage,
       },
       onCompleted: (responseData) => {
-          console.log(currentPage);
-          console.log(totalCount);
-          console.log(props.totalCount);
         if (responseData?.categoryProducts && currentPage === 1) {
           setProducts(responseData?.categoryProducts);
         } else if (
