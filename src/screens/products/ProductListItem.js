@@ -30,6 +30,9 @@ export const ProductListItem = ({ item, index }) => {
           <Text center margin-5>
             {item.name}
           </Text>
+          <Text center margin-5>
+            Цена {item.priceForOne}
+          </Text>
         </View>
       </TouchableScale>
     </AnimatedAppearance>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { FlatList, ActivityIndicator, RefreshControl } from 'react-native';
 import { Text, View } from 'react-native-markup-kit';
 import { useCategories } from '../logic/categories/useCategories';
 import { useNavigation, useRoute } from '@react-navigation/core';
@@ -30,17 +30,10 @@ const CatalogScreen = ({ navigation }) => {
       navigationCategory.push(routes.NAVIGATION_PRODUCTS_ROUTE, {
         categoryId: item._id,
         title: item.name,
+        totalCount: item.productCount,
       });
     }
   };
-
-  if (loading) {
-    return (
-      <View flex center>
-        <ActivityIndicator size="large" />
-      </View>
-    );
-  }
 
   const renderItem = ({ item, index }) => {
     return (
@@ -60,6 +53,9 @@ const CatalogScreen = ({ navigation }) => {
         data={categories}
         keyExtractor={item => item._id}
         renderItem={renderItem}
+        refreshControl={
+          <RefreshControl refreshing={loading} onRefresh={getCategories} />
+        }
       />
     </View>
   );
@@ -67,11 +63,3 @@ const CatalogScreen = ({ navigation }) => {
 
 export default CatalogScreen;
 
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         alignItems: 'center',
-//         justifyContent: 'center',
-//         backgroundColor: '#8fcbbc'
-//     }
-// })
