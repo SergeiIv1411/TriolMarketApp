@@ -31,7 +31,7 @@ export const ProductListItem = ({ item, index, onPress }) => {
             {item.name}
           </Text>
           <Text center margin-5>
-            Цена {item.priceForOne}
+            Цена {item.priceForOne} ₽
           </Text>
         </View>
       </TouchableScale>
