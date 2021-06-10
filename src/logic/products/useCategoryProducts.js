@@ -8,7 +8,7 @@ import { GET_CATEGORYPRODUCT } from '../../apollo/queries/getCategoryProducts';
 
 const PAGE_SIZE = 10;
 
-export const useCategoryProducts = props => {
+export const useCategoryProducts = (props) => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(props.totalCount);

@@ -7,11 +7,11 @@ import { TouchableScale } from '../common/TouchableScale';
 
 const COLUMN_SIZE = Constants.screenWidth / 2 - Spacings.s2 * 3;
 
-export const ProductListItem = ({ item, index }) => {
+export const ProductListItem = ({ item, index, onPress }) => {
   return (
     // <View flex bg-white br40 margin-s2 shadow70>
     <AnimatedAppearance index={index}>
-      <TouchableScale onPress={() => {}} scaleTo={0.97}>
+      <TouchableScale onPress={() => {onPress(item)}} scaleTo={0.97}>
         <View flex bg-white br40 margin-s2 shadow70 style={{width: COLUMN_SIZE}}>
           <View style={[style.image, style.imageWrap]} br40>
             <Image

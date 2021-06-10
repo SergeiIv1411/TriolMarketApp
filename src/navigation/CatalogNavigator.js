@@ -1,9 +1,10 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import CatalogScreen from "../screens/CatalogScreen";
 import * as routes from './routes';
+import CatalogScreen from "../screens/CatalogScreen";
 import { ProductListScreen } from "../screens/products/ProductListScreen";
+import { ProductDetailScreen } from "../screens/products/ProductDetailScreen";
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,13 @@ const CatalogNavigator = () => {
         component={ProductListScreen}
         options={({navigation, route}) => ({ 
           title: route?.params?.title ?? 'Товары',
+        })}  
+      />
+      <Stack.Screen 
+        name={routes.NAVIGATION_PRODUCT_DETAILS_ROUTE} 
+        component={ProductDetailScreen}
+        options={({navigation, route}) => ({ 
+          title: route?.params?.title ?? 'Карточка товара',
         })}  
       />
     </Stack.Navigator>
